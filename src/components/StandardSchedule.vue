@@ -62,7 +62,7 @@
 <script>
 import { mapMutations, mapState } from 'vuex'
 import * as _themes from '../themes/variances/index'
-import { calendar } from '../mixins/index'
+import { calendar } from '../mixins/calendar/index'
 var _ = require('lodash');
 
 export default ({

@@ -6,14 +6,14 @@ import createPersistedState from 'vuex-persistedstate'
 Vue.use(Vuex)
 const set = property => (store, payload) => (store[property] = payload)
 
-// FOR TESTING PURPOSES
-const Sunday = "12/31/2021"
-const Monday = "12/20/2021"
-const Tuesday = "12/21/2021"
-const Wednesday = "12/22/2021"
-const Thursday = "12/23/2021"
-const Friday = "12/24/2021"
-const Saturday = "12/25/2021"
+// Test Data
+const Sunday = "3/29/2022"
+const Monday = "3/28/2022"
+const Tuesday = "3/29/2022"
+const Wednesday = "3/30/2022"
+const Thursday = "3/31/2022"
+const Friday = "4/1/2022"
+const Saturday = "4/2/2022"
 // ----------------------------
 
 const store = new Vuex.Store({
@@ -22,6 +22,7 @@ const store = new Vuex.Store({
         calendar_type: "Sat - Fri",
         dark_mode: false,
         variance_theme: "standard",
+        // Test data
         variances: [
             {type: "WFH", date: Monday, start: "08:00:00", end: "10:30:00", duration: 8.5},
             {type: "OUT", date: Monday, start: "10:30:00", end: "12:30:00", duration: 8.5},
@@ -31,7 +32,8 @@ const store = new Vuex.Store({
             {type: "WFH", date: Tuesday, start: "08:00:00", end: "16:30:00", duration: 8.5},
             {type: "WFH", date: Wednesday, start: "08:00:00", end: "16:30:00", duration: 8.5},
             {type: "WFH", date: Thursday, start: "08:00:00", end: "16:30:00", duration: 8.5},
-            {type: "WFH", date: Friday, start: "08:00:00", end: "16:30:00", duration: 8.5},
+            // {type: "WFH", date: Friday, start: "08:00:00", end: "16:30:00", duration: 8.5},
+            {type: "OUT", date: Friday, start: "09:00:00", end: "10:30:00", duration: 8.5},
             {type: "OUT", date: Saturday, start: "15:00:00", end: "16:30:00", duration: 1.5 },
             {type: "OUT", date: Saturday, start: "16:30:00", end: "16:40:00", duration: 1.5 },
             {type: "OUT", date: Saturday, start: "17:00:00", end: "18:30:00", duration: 1.5 },
