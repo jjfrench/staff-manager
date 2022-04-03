@@ -1,7 +1,7 @@
 var _ = require('lodash');
 import { DateTime } from 'luxon';
 import * as _themes from '../../themes/variances/index'
-import { condenseEvents, replaceStandard, splitVariances } from './variance_conditions'
+import { condenseEvents, replaceStandard, splitVariances } from './conditions'
 
 export var calendar = {
     data: function() {
@@ -95,8 +95,10 @@ export var calendar = {
             let grouped_events = _.groupBy(today,'type')
             if(!_.isEmpty(grouped_events)){
                 let condensed_events = condenseEvents(grouped_events)
-                today = splitVariances(condensed_events)
+                let replaced_events = replaceStandard(condensed_events, this.holidays_arr, date)
+                today = splitVariances(replaced_events)
             }
+            // Remaining Replacements
             today = replaceStandard(today, this.holidays_arr, date)
             today = _.sortBy(today, ['start', 'end'])
             this.week_events.push(today)
@@ -175,6 +177,12 @@ export var calendar = {
                 day += 'th'
             }
             return day
+        },
+        duration: function(start, end) {
+            let duration_start = DateTime.fromFormat(start, "TT")
+            let duration_end = DateTime.fromFormat(end, "TT")
+            let difference = duration_end.diff(duration_start, ['hours','minutes'])
+            return difference.as('hours')*35
         }
     },
     computed: {
