@@ -92,19 +92,19 @@
                                     <div class="days"> {{ day.day }} </div>
                                     <div class="holidays"> {{ getHoliday(day.date, day.year) }} </div>
                                     <div 
-                                    class="events"
-                                    v-for="event in day.events" 
-                                    :key="event.index" 
+                                        class="events"
+                                        v-for="event in day.events" 
+                                        :key="event.index"
                                     >
                                         <v-card
                                             :color=getTheme(event.type)
-                                            :height="10*event.duration"
-                                            :min-height="70"
+                                            :height="duration(event.start, event.end)"
+                                            :min-height="55"
                                         >
                                             <v-row class="event event-text">
                                                 <v-col>
                                                     <v-row>
-                                                        {{ event.type }} 
+                                                        {{ event.type }}
                                                         <v-spacer></v-spacer>
                                                     </v-row>
                                                     <v-row> 
@@ -158,7 +158,6 @@
 import { mapMutations, mapState } from 'vuex'
 import * as _themes from '../themes/variances/index'
 import { calendar } from '../mixins/calendar/index'
-var _ = require('lodash');
 
 export default {
     data: function() {
