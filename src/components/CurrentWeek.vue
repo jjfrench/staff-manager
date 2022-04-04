@@ -9,18 +9,19 @@
                     :dark="dark"
                 >
                     <v-card-title>
-                    <v-btn 
-                        icon 
-                        small
-                        v-if="week_offset != 0"
-                        @click="week_offset -= 7; setYear();"
-                    >
-                        <v-icon dense>
-                            mdi-chevron-left
-                        </v-icon>
-                    </v-btn>
+                    
                     <span class="text-h4 font-weight-light">
                         Week of
+                        <v-btn 
+                            icon 
+                            small
+                            v-if="week_offset != 0"
+                            @click="week_offset -= 7; setYear();"
+                        >
+                            <v-icon dense>
+                                mdi-chevron-left
+                            </v-icon>
+                        </v-btn>
                         <v-scroll-x-reverse-transition> 
                             <span class="text-h4 font-weight-light">
                                 {{current_week_header}}
@@ -43,7 +44,6 @@
                         >
                             <v-icon>mdi-dots-vertical</v-icon>
                         </v-btn>
-
                         <v-navigation-drawer
                             v-model="settings"
                             absolute
