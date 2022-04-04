@@ -40,31 +40,26 @@
 				<v-icon dense>mdi-account-outline</v-icon>
 			</v-btn>
 		</div>
-		<v-badge
-			bordered
-			dot
-			color="error"
-			overlap
-			class="navlink"
-		>
-		<v-btn icon small>
-			<v-icon dense>mdi-message-outline</v-icon>
-		</v-btn>
-		</v-badge>
+
+		<Notifications/>
   </v-app-bar>
 </template>
 <script>
+import Notifications from './Notifications.vue';
 export default ({
-  name: 'Navigation',
-  data: function() {
-    return {
-      collapse: true,
-      links: ["Schedules", "variances", "homerooms", "users"]
-    }
-  }
+	name: 'Navigation',
+	components: {
+		Notifications
+	},
+	data: function() {
+		return {
+			collapse: true,
+			links: ["Schedules", "variances", "homerooms", "users"]
+		}
+	}
 })
 </script>
-<style scoped>
+<style>
 .navlink {
   padding-left: 20px;
   text-decoration: none;
