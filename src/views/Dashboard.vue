@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import CurrentWeek from '../components/CurrentWeek';
 export default {
     name: 'dashboard',
@@ -20,11 +19,9 @@ export default {
     },
     data: function() {
       return {
-        subscriptions: this.$store.state.store_subscriptions
       }
     },
     methods: {
-      ...mapState(['store_subscriptions']),
     }
 }
 </script>
