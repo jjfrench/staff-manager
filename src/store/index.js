@@ -16,7 +16,8 @@ const store = new Vuex.Store({
         variance_theme: "standard",
         variances: test.variances,
         schedule: test.schedule,
-        store_subscriptions: test.store_subscriptions
+        notifications: test.notifications,
+        subscriptions: test.subscriptions
     },
     mutations: {
         setCalendarType: set('calendar_type'),
