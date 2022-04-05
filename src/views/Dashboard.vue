@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import CurrentWeek from '../components/CurrentWeek';
+import CurrentWeek from '../components/Calendars/CurrentWeek';
 export default {
     name: 'dashboard',
     components: {
