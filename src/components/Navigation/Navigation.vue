@@ -35,26 +35,23 @@
 			append-icon="mdi-magnify"
 			class="search"
 		></v-text-field>
-		<div class="navlink">
-			<v-btn icon small >
-				<v-icon dense>mdi-account-outline</v-icon>
-			</v-btn>
-		</div>
-
+		<Account/>
 		<Notifications/>
   </v-app-bar>
 </template>
 <script>
 import Notifications from './Notifications.vue';
+import Account from '../Navigation/Account/Account.vue';
 export default ({
 	name: 'Navigation',
 	components: {
-		Notifications
+		Notifications,
+		Account
 	},
 	data: function() {
 		return {
 			collapse: true,
-			links: ["Schedules", "variances", "homerooms", "users"]
+			links: ["schedules", "variances", "homerooms", "users"]
 		}
 	}
 })

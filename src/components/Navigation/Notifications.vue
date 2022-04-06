@@ -56,6 +56,7 @@
                                                 <v-btn
                                                     v-if="!hover"
                                                     icon
+                                                    small
                                                     v-bind="attrs"
                                                     v-on="on"
                                                 >
@@ -64,6 +65,7 @@
                                                 <v-btn
                                                     v-else
                                                     icon
+                                                    small
                                                     v-bind="attrs"
                                                     v-on="on"
                                                 >
@@ -79,6 +81,7 @@
                                                 <v-btn
                                                     v-if="!hover"
                                                     icon
+                                                    small
                                                     v-bind="attrs"
                                                     v-on="on"
                                                 >
@@ -87,6 +90,7 @@
                                                 <v-btn
                                                     v-else-if="item.approved"
                                                     icon
+                                                    small
                                                     v-bind="attrs"
                                                     v-on="item.approved = true"
                                                 >
@@ -95,6 +99,7 @@
                                                 <v-btn
                                                     v-else
                                                     icon
+                                                    small
                                                     v-bind="attrs"
                                                     v-on="on"
                                                 >
@@ -110,6 +115,7 @@
                                                 <v-btn
                                                     v-if="!hover"
                                                     icon
+                                                    small
                                                     v-bind="attrs"
                                                     v-on="on"
                                                 >
@@ -118,6 +124,7 @@
                                                 <v-btn
                                                     v-else
                                                     icon
+                                                    small
                                                     v-bind="attrs"
                                                     v-on="on"
                                                 >
@@ -148,9 +155,6 @@ export default {
 	},
     methods: {
 
-    },
-    created() {
-        console.log(this.notifications)
     }
 }
 </script>
