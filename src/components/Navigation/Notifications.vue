@@ -10,18 +10,18 @@
     >
         <template v-slot:activator="{ on, attrs }">
             <v-badge
-                bordered
-                dot
-                :color="notifications.length > 0 ? 'error' : null"
-                overlap
-                class="navlink"
+            bordered
+            dot
+            :color="notifications.length > 0 ? 'error' : null"
+            overlap
+            class="navlink"
             >
                 <v-btn 
-                    icon 
-                    small
-                    :disabled="notifications.length > 0 ? false : true"
-                    v-bind="attrs"
-                    v-on="on"
+                icon 
+                small
+                :disabled="notifications.length > 0 ? false : true"
+                v-bind="attrs"
+                v-on="on"
                 >
                     <v-icon dense>mdi-message-outline</v-icon>
                 </v-btn>
@@ -30,9 +30,9 @@
 
         <v-list two-line>
             <v-list-item-group
-                v-model="selected"
-                active-class="primary--text"
-                multiple
+            v-model="selected"
+            active-class="primary--text"
+            multiple
             >
                 <template v-for="item in notifications">
                     <v-hover v-slot="{ hover }" :key="item.title">
@@ -54,20 +54,20 @@
                                         <template v-slot:activator="{ on, attrs }">
                                             <v-hover v-slot="{ hover }">
                                                 <v-btn
-                                                    v-if="!hover"
-                                                    icon
-                                                    small
-                                                    v-bind="attrs"
-                                                    v-on="on"
+                                                v-if="!hover"
+                                                icon
+                                                small
+                                                v-bind="attrs"
+                                                v-on="on"
                                                 >
                                                     <v-icon color="grey lighten-1">mdi-information-outline</v-icon>
                                                 </v-btn>
                                                 <v-btn
-                                                    v-else
-                                                    icon
-                                                    small
-                                                    v-bind="attrs"
-                                                    v-on="on"
+                                                v-else
+                                                icon
+                                                small
+                                                v-bind="attrs"
+                                                v-on="on"
                                                 >
                                                     <v-icon color="primary lighten-1">mdi-information-outline</v-icon>
                                                 </v-btn>
@@ -79,29 +79,29 @@
                                         <template v-slot:activator="{ on, attrs }">
                                             <v-hover v-if="item.approval" v-slot="{ hover }">
                                                 <v-btn
-                                                    v-if="!hover"
-                                                    icon
-                                                    small
-                                                    v-bind="attrs"
-                                                    v-on="on"
+                                                v-if="!hover"
+                                                icon
+                                                small
+                                                v-bind="attrs"
+                                                v-on="on"
                                                 >
                                                     <v-icon color="grey lighten-1">mdi-check-circle-outline</v-icon>
                                                 </v-btn>
                                                 <v-btn
-                                                    v-else-if="item.approved"
-                                                    icon
-                                                    small
-                                                    v-bind="attrs"
-                                                    v-on="item.approved = true"
+                                                v-else-if="item.approved"
+                                                icon
+                                                small
+                                                v-bind="attrs"
+                                                v-on="item.approved = true"
                                                 >
                                                     <v-icon color="green lighten-1">mdi-check-circle-outline</v-icon>
                                                 </v-btn>
                                                 <v-btn
-                                                    v-else
-                                                    icon
-                                                    small
-                                                    v-bind="attrs"
-                                                    v-on="on"
+                                                v-else
+                                                icon
+                                                small
+                                                v-bind="attrs"
+                                                v-on="on"
                                                 >
                                                     <v-icon color="green lighten-1">mdi-check-circle-outline</v-icon>
                                                 </v-btn>
@@ -113,20 +113,20 @@
                                         <template v-slot:activator="{ on, attrs }">
                                             <v-hover v-slot="{ hover }">
                                                 <v-btn
-                                                    v-if="!hover"
-                                                    icon
-                                                    small
-                                                    v-bind="attrs"
-                                                    v-on="on"
+                                                v-if="!hover"
+                                                icon
+                                                small
+                                                v-bind="attrs"
+                                                v-on="on"
                                                 >
                                                     <v-icon color="grey lighten-1">mdi-close-circle-outline</v-icon>
                                                 </v-btn>
                                                 <v-btn
-                                                    v-else
-                                                    icon
-                                                    small
-                                                    v-bind="attrs"
-                                                    v-on="on"
+                                                v-else
+                                                icon
+                                                small
+                                                v-bind="attrs"
+                                                v-on="on"
                                                 >
                                                     <v-icon color="red lighten-1">mdi-close-circle-outline</v-icon>
                                                 </v-btn>

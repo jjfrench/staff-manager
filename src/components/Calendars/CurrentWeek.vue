@@ -3,20 +3,20 @@
         <v-row>
             <v-col>
                 <v-card
-                    class="rounded-lg"
-                    width="100%"
-                    :elevation="5"
-                    :dark="dark"
+                class="rounded-lg"
+                width="100%"
+                :elevation="5"
+                :dark="dark"
                 >
                     <v-card-title>
                     
                     <span class="text-h4 font-weight-light">
                         Week of
                         <v-btn 
-                            icon 
-                            small
-                            v-if="week_offset != 0"
-                            @click="week_offset -= 7; setYear();"
+                        icon 
+                        small
+                        v-if="week_offset != 0"
+                        @click="week_offset -= 7; setYear();"
                         >
                             <v-icon dense>
                                 mdi-chevron-left
@@ -29,9 +29,9 @@
                         </v-scroll-x-reverse-transition>
                     </span>
                     <v-btn 
-                        icon 
-                        small
-                        @click="week_offset += 7; setYear();"
+                    icon 
+                    small
+                    @click="week_offset += 7; setYear();"
                     >
                         <v-icon dense>
                             mdi-chevron-right
@@ -39,16 +39,16 @@
                     </v-btn>
                     <v-spacer></v-spacer>
                         <v-btn
-                            icon
-                            @click="settings = !settings"
+                        icon
+                        @click="settings = !settings"
                         >
                             <v-icon>mdi-dots-vertical</v-icon>
                         </v-btn>
                         <v-navigation-drawer
-                            v-model="settings"
-                            absolute
-                            temporary
-                            right
+                        v-model="settings"
+                        absolute
+                        temporary
+                        right
                         >
                         <v-list-item class="text-center" v-if="settings">
                             Settings
@@ -82,24 +82,24 @@
                     <v-card-text class="week">
                         <v-row no-gutters>
                             <v-col 
-                                :class="index == 0 ? false:'border-left'" 
-                                :cols="12/week.length" 
-                                v-for="(day, index) in week" 
-                                :key="day.date"
+                            :class="index == 0 ? false:'border-left'" 
+                            :cols="12/week.length" 
+                            v-for="(day, index) in week" 
+                            :key="day.date"
                             >
                                 <v-card tile elevation="0" width="100%">
                                     <div class="weekdays"> {{ day.weekday }} </div>
                                     <div class="days"> {{ day.day }} </div>
                                     <div class="holidays"> {{ getHoliday(day.date, day.year) }} </div>
                                     <div 
-                                        class="events"
-                                        v-for="event in day.events" 
-                                        :key="event.index"
+                                    class="events"
+                                    v-for="event in day.events" 
+                                    :key="event.index"
                                     >
                                         <v-card
-                                            :color=getTheme(event.type)
-                                            :height="duration(event.start, event.end)"
-                                            :min-height="55"
+                                        :color=getTheme(event.type)
+                                        :height="duration(event.start, event.end)"
+                                        :min-height="55"
                                         >
                                             <v-row class="event event-text">
                                                 <v-col>
@@ -121,18 +121,18 @@
                     
                     <v-card-actions>
                         <v-chip
-                            v-for="key in legend"
-                            :key="key.index"
-                            class="ma-2"
-                            :color="key.color"
-                            label
-                            :outlined="!dark"
+                        v-for="key in legend"
+                        :key="key.index"
+                        class="ma-2"
+                        :color="key.color"
+                        label
+                        :outlined="!dark"
                         >
                             <v-icon
-                                v-if="!dark"
-                                small
-                                :color="key.color"
-                                style="padding-right:5px;"
+                            v-if="!dark"
+                            small
+                            :color="key.color"
+                            style="padding-right:5px;"
                             >
                                 mdi-checkbox-blank-circle
                             </v-icon>

@@ -5,9 +5,9 @@
 	flat
 	>
 		<v-btn 
-			icon 
-			small
-			v-show="$vuetify.breakpoint.smOnly" 
+		icon 
+		small
+		v-show="$vuetify.breakpoint.smOnly" 
 		>
 			<v-icon dense>mdi-menu</v-icon>
 		</v-btn>
@@ -27,14 +27,15 @@
 
 		<v-spacer></v-spacer>
 		<v-text-field
-			dense
-			rounded
-			outlined
-			clearable
-			label="Search"
-			append-icon="mdi-magnify"
-			class="search"
+		dense
+		rounded
+		outlined
+		clearable
+		label="Search"
+		append-icon="mdi-magnify"
+		class="search"
 		></v-text-field>
+		<div class="navlink"></div> <!-- Shifts all account buttons over -->
 		<Account/>
 		<Notifications/>
   </v-app-bar>
@@ -63,7 +64,7 @@ export default ({
   color: inherit;
 }
 .search {
-	max-width: 250px;
+	max-width: 200px;
 	height:69%;
 }
 </style>
