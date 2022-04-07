@@ -1,14 +1,14 @@
 <template>
-  <v-app id="app">
+    <v-app id="app">
     <v-main>
-      <Navigation/>
-      <v-container>
-        <keep-alive>
-          <router-view/>
-        </keep-alive>
-      </v-container>
+        <Navigation/>
+        <v-container class="page">
+            <keep-alive>
+                <router-view/>
+            </keep-alive>
+        </v-container>
     </v-main>
-  </v-app>
+    </v-app>
 </template>
 
 <script>
@@ -22,6 +22,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
+<style scoped>
+.page {
+    margin-top: 2%;
+}
 </style>
