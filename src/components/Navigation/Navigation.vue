@@ -18,7 +18,7 @@
 		<h1>SAM</h1>
 		<v-chip
 		class="ma-2"
-		color="green"
+		color="primary darken-5"
 		label
 		outlined
 		>
@@ -35,9 +35,9 @@
 		append-icon="mdi-magnify"
 		class="search"
 		></v-text-field>
+		<Notifications/>
 		<div class="navlink"></div> <!-- Shifts all account buttons over -->
 		<Account/>
-		<Notifications/>
   </v-app-bar>
 </template>
 <script>
@@ -52,7 +52,7 @@ export default ({
 	data: function() {
 		return {
 			collapse: true,
-			links: ["schedules", "variances", "homerooms", "users"]
+			links: ["home", "schedules", "variances", "homerooms", "users"]
 		}
 	}
 })
