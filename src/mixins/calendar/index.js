@@ -1,7 +1,7 @@
 var _ = require('lodash');
 import { DateTime } from 'luxon';
 import * as _themes from '../../themes/variances/index'
-import { condenseEvents, replaceStandard, splitVariances } from './conditions'
+import { condenseEvents, replaceStandard, splitVariances, varianceReoccurrence } from './conditions'
 
 export var calendar = {
     data: function() {
@@ -144,9 +144,6 @@ export var calendar = {
                 this.holidays_arr[key] = { name:holiday.name, paid: holiday.paid}
             })
         },
-        reoccurrance: function() {
-            // {__th, day}/{__, week}/{__, month} every {__th, day}/{__, week}/{__, month}/{__, year} until XX/XX/XX
-        },
         time: function(time) {
             var obj = time.split(':')
             var h_24 = Number(obj[0])
@@ -202,6 +199,7 @@ export var calendar = {
             var day_iter = new Number(0);
             var schedule = this.getSchedule(DateTime.now().plus({days: this.week_offset}));
             this.schedule_variances = _.concat(this.calendar_variances, schedule)
+            this.schedule_variances = varianceReoccurrence(this.schedule_variances)
             for(let i = 0; i < iter; i++){
                 var date = reference.plus({days: day_iter})
                 var dateString = date.toLocaleString(DateTime.DATE_SHORT)

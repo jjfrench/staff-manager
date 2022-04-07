@@ -131,3 +131,62 @@ export function replaceStandard(passed_events, holidays, date) {
     }
     return passed_events;
 }
+
+export function varianceReoccurrence(passed_events) {
+    /*
+        Foreach reoccurring variance, generate a new event based on occurence
+        as long as end date is not reached.
+
+        passed_events: array of objects
+        returns: array of objects (includes new, reoccurring events)
+    */
+    const types = {
+         daily: {days:1},
+         daily_workdays: {days:1},
+         weekly: {weeks:1},
+         biweekly: {weeks:2},
+         monthly: {months: 1},
+         yearly: {years: 1}
+    }
+    // Get only events where 'reoccurrence' is not null
+    let reoccurring = _.filter(passed_events, 'reoccurrence')
+    _.forEach(reoccurring, event => {
+        let date = DateTime.fromFormat(event.date, "D");
+        let end_date = DateTime.fromFormat(event.end_date, "D");
+        
+        while (date <= end_date) {
+            // date of would be new event
+            date = date.plus(types[event.reoccurrence]);
+            if (date <= end_date) {
+                // daily_workdays only adds a reoccurring event onto days containing a STANDARD schedule event
+                if (event.reoccurrence == "daily_workdays") {
+                    if (_.find(passed_events, {'type':'STANDARD', 'date':date.toLocaleString(DateTime.DATE_SHORT) } ) ) {
+                        passed_events.push(
+                            {
+                                'type': event.type,
+                                'date': date.toLocaleString(DateTime.DATE_SHORT),
+                                'start': event.start,
+                                'end': event.end
+                            }
+                        );
+                    }
+                    else {
+                        // pass
+                    }
+                }
+                else {
+                    passed_events.push(
+                        {
+                            'type': event.type,
+                            'date': date.toLocaleString(DateTime.DATE_SHORT),
+                            'start': event.start,
+                            'end': event.end
+                        }
+                    );
+                }
+            }
+            else { break }
+        }
+    })
+    return passed_events;
+}
