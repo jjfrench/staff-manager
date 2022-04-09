@@ -12,7 +12,7 @@
             <v-badge
             bordered
             dot
-            :color="notifications.length > 0 ? 'error' : null"
+            :color="notifications.length > 0 ? 'primary' : null"
             overlap
             class="navlink"
             >
@@ -128,7 +128,7 @@
                                                 v-bind="attrs"
                                                 v-on="on"
                                                 >
-                                                    <v-icon color="red lighten-1">mdi-close-circle-outline</v-icon>
+                                                    <v-icon color="red lighten-1" @click=remove(item)>mdi-close-circle-outline</v-icon>
                                                 </v-btn>
                                             </v-hover>
                                         </template>
@@ -145,6 +145,7 @@
 </template>
 
 <script>
+var _ = require('lodash');
 export default {
     name: 'Notifications',
 	data: function() {
@@ -154,7 +155,10 @@ export default {
 		}
 	},
     methods: {
-
+        remove(event) {
+            console.log(event)
+            _.remove(this.notifications, event)
+        }
     }
 }
 </script>

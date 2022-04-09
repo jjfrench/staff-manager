@@ -36,8 +36,9 @@
 		class="search"
 		></v-text-field>
 		<Notifications/>
-		<div class="navlink"></div> <!-- Shifts all account buttons over -->
+		<div style="padding-left: 20px;"></div>
 		<Account/>
+		<div style="padding-right: 12px;"></div>
   </v-app-bar>
 </template>
 <script>
@@ -64,7 +65,7 @@ export default ({
   color: inherit;
 }
 .search {
-	max-width: 200px;
+	max-width: 300px;
 	height:69%;
 }
 </style>
