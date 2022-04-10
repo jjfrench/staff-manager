@@ -29,5 +29,4 @@ const store = new Vuex.Store({
         storage: window.localStorage
     })]
 })
-
 export default store

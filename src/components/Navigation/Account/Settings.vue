@@ -82,6 +82,7 @@
 
 <script>
 import * as _themes from '../../../themes/variances/index'
+import { mapMutations, mapState } from 'vuex'
 export default {
     name: 'Settings',
 	data: function() {
@@ -103,8 +104,20 @@ export default {
 		}
 	},
     methods: {
-
+        ...mapState(['name', 'variances', 'schedule', 'dark_mode']),
+        ...mapMutations(['setCalendarType', 'setVarianceTheme', 'setDarkMode']),
     },
+    watch: {
+        calendar_type() {
+            this.setCalendarType(this.calendar_type)
+        },
+        variance_theme() {
+            this.setVarianceTheme(this.variance_theme)
+        },
+        dark() {
+            this.setDarkMode(this.dark)
+        }
+    }
 }
 </script>
 

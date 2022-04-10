@@ -12,6 +12,15 @@ export var calendar = {
             week_offset: 0,
             schedule_variances: [],
             week_events: [],
+            current_week_header: '',
+            calendar_types: [
+                "Sat - Fri",
+                "Sun - Sat",
+                "Mon - Sun",
+                "Mon - Fri",
+                "Mon - Thu"
+            ],
+            variance_themes: _themes['themes'],
         }
     },
     created() {
@@ -183,6 +192,22 @@ export var calendar = {
         }
     },
     computed: {
+        calendar_type: function () {
+            return this.$store.state.calendar_type;
+        },
+        calendar_variances: function () {
+            return this.$store.state.variances;
+        },
+        variance_theme: function () {
+            return this.$store.state.variance_theme;
+        },
+        
+        calendar_schedule: function () {
+            return this.$store.state.schedule
+        },
+        dark: function () {
+            return this.$store.state.dark_mode
+        },
         week: function () {
             var [reference, iter] = this.weekdays(this.calendar_type, this.week_offset);
 
