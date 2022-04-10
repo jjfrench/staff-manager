@@ -38,46 +38,6 @@
                         </v-icon>
                     </v-btn>
                     <v-spacer></v-spacer>
-                        <v-btn
-                        icon
-                        @click="settings = !settings"
-                        >
-                            <v-icon>mdi-dots-vertical</v-icon>
-                        </v-btn>
-                        <v-navigation-drawer
-                        v-model="settings"
-                        absolute
-                        temporary
-                        right
-                        >
-                        <v-list-item class="text-center" v-if="settings">
-                            Settings
-                        </v-list-item>
-                        <v-list-item class="settings">
-                            <v-list-item-content v-if="settings">
-                                <v-select
-                                v-model="calendar_type"
-                                :items="calendar_types"
-                                label="weekdays"
-                                dense
-                                ></v-select>
-                                <v-select
-                                v-model="variance_theme"
-                                :items="variance_themes"
-                                label="theme"
-                                dense
-                                ></v-select>
-                                <v-switch
-                                style="padding-left: 10px"
-                                v-model="dark"
-                                label="dark mode"
-                                :value="true"
-                                hide-details
-                                dense
-                                ></v-switch>
-                            </v-list-item-content>
-                        </v-list-item>
-                        </v-navigation-drawer>
                     </v-card-title>
                     <v-card-text class="week">
                         <v-row no-gutters>
@@ -154,57 +114,18 @@
 </template>
 
 <script>
-/* eslint-disable */
-import { mapMutations, mapState } from 'vuex'
-import * as _themes from '../../themes/variances/index'
 import { calendar } from '../../mixins/calendar/index'
 
 export default {
     data: function() {
         return {
-            current_week_header: '',
-            settings: false,
-            calendar_types: [
-                "Sat - Fri",
-                "Sun - Sat",
-                "Mon - Sun",
-                "Mon - Fri",
-                "Mon - Thu"
-            ],
-            calendar_type: this.$store.state.calendar_type,
-            calendar_variances: this.$store.state.variances,
-            variance_theme: this.$store.state.variance_theme,
-            variance_themes: _themes['themes'],
-            calendar_schedule: this.$store.state.schedule,
-            dark: this.$store.state.dark_mode
         }
-    },
-    created() {
-        
     },
     mixins: [ calendar ],
-    methods: {
-        ...mapState(['name', 'variances', 'schedule', 'dark_mode']),
-        ...mapMutations(['setCalendarType', 'setVarianceTheme', 'setDarkMode']),
-    },
-    watch: {
-        calendar_select() {
-            setCalendarType(this.calendar_types)
-            // this.calendar_type = this.calendar_types
-        },
-        theme_select() {
-            setVarianceTheme(this.variance_theme)
-        }
-    }
 }
 </script>
+
 <style scoped>
-.calendar {
-    border-radius: 0.25rem;
-}
-.settings {
-    font-size: 12px;
-}
 .week {
     margin-top: 15px;
 }
